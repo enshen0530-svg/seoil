@@ -1,0 +1,6 @@
+# Keep local-only material out of the published site
+works/
+web/*
+!web/profile.jpg
+img/cover-art.jpg
+img/tv-*.jpg

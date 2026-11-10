@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신은선 — Editor Portfolio</title>
+<meta name="description" content="하나의 시선에 머무르지 않고 새로운 관점과 가능성을 찾아가는 에디터, 신은선의 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
+
+<header class="topbar">
+  <a class="brand" href="#top">신은선<sup>EDITOR</sup></a>
+  <p class="status mono"><i></i><b>Editor in Contents — 2026</b></p>
+  <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기"><span></span></button>
+</header>
+
+<nav class="menu" id="menu" aria-hidden="true">
+  <div class="menu__top"><span class="mono">Menu</span><button class="menu__close" id="menuClose" aria-label="메뉴 닫기">×</button></div>
+  <ol>
+    <li><a href="#work"><small>01</small>Selected Work</a></li>
+    <li><a href="#signature"><small>02</small>Signature</a></li>
+    <li><a href="#approach"><small>03</small>How I Work</a></li>
+    <li><a href="#profile"><small>04</small>Profile</a></li>
+    <li><a href="projects.html"><small>05</small>All Projects</a></li>
+    <li><a href="#contact"><small>06</small>Contact</a></li>
+  </ol>
+  <p class="mono">Shin Eunseon — Seoil University · Media Publishing</p>
+</nav>
+
+<main id="top">
+
+  <!-- HERO : illustration top-center, title below -->
+  <section class="hero">
+    <div class="hero__meta mono"><span>(Editor · Designer)</span><span>Seoul, KR</span></div>
+    <div class="hero__art"><img src="img/cover-illust.jpg" alt="눈이 비치는 TV와 비디오테이프, 감시 카메라를 그린 라인 일러스트"></div>
+    <h1 class="hero__title big">
+      <span class="line"><span>Editor <span class="y">in</span></span></span>
+      <span class="line"><span><em>Contents</em></span></span>
+    </h1>
+    <p class="lead">하나의 시선에 머무르지 않고 <strong>새로운 관점과 가능성을 찾아가는 에디터</strong>, 신은선입니다.<br>잡지·신문·영상·디자인을 넘나들며 이야기를 엮습니다.</p>
+    <div class="hero__foot mono"><span>Scroll to explore</span><span>Portfolio 2026</span></div>
+  </section>
+
+  <!-- (01) MANIFESTO -->
+  <section class="sec manifesto">
+    <div class="sec-head mono"><span><b>(01)</b> Manifesto</span><span>Point of view</span></div>
+    <p class="quote rv">If the light is great in front of you, you should turn around and see what it is doing behind you.</p>
+    <p class="quote-ko rv">눈앞의 빛이 아주 좋다면, 뒤돌아서 뒤쪽에서는 빛이 어떻게 비치고 있는지도 살펴봐야 한다.</p>
+    <p class="quote-by mono rv">— Jay Maisel</p>
+    <p class="manifesto__text" id="manifestoText" data-hl="시선을,가능성이,질문을,나만의">익숙한 방향에서 벗어나 시선을 돌리면 미처 발견하지 못했던 가능성이 드러난다. 당연하게 여겼던 것에도 질문을 던지고, 다른 관점에서 대상을 이해하며, 그 안에서 발견한 의미를 나만의 방식으로 표현한다.</p>
+    <p class="manifesto__sign rv">— <b>하나의 시선에 머무르지 않고 새로운 관점과 가능성을 찾아가는 에디터</b></p>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" data-speed="80"><span>Magazine</span><span class="star">✳</span><span>Newspaper</span><span class="star">✳</span><span>Video</span><span class="star">✳</span><span>Design</span><span class="star">✳</span><span>Editor in Contents</span><span class="star">✳</span></div>
+  </div>
+
+  <!-- (02) SELECTED WORK — pinned horizontal scroll -->
+  <section class="work" id="work">
+    <div class="work__pin">
+      <div class="work__head">
+        <p class="mono"><b>(02)</b> Selected Work</p>
+        <p class="work__count"><span id="workNow">01</span> <i>/ 04</i></p>
+      </div>
+      <div class="work__track" id="workTrack">
+        <a class="proj" href="projects.html#g17" data-cursor="View"><div class="proj__media"><img src="img/g18-covers.jpg" alt="지울림 제18호 도시편집 앞표지와 백커버 목업"></div><div class="proj__info"><span class="proj__no">01</span><h3>Magazine</h3><span class="proj__cat">‘지울림’ 편집장 · 출판주의자 · 도시편집</span></div></a>
+        <a class="proj" href="projects.html#press" data-cursor="View"><div class="proj__media"><img src="img/news-a.jpg" alt="서일학보 1면 목업"></div><div class="proj__info"><span class="proj__no">02</span><h3>Newspaper</h3><span class="proj__cat">2026 서일학보사 편집장 · 서일학보</span></div></a>
+        <a class="proj" href="projects.html#reading" data-cursor="View"><div class="proj__media"><img src="img/vid-main.jpg" alt="2025 책 읽는 대한민국 행사 현장"></div><div class="proj__info"><span class="proj__no">03</span><h3>Video</h3><span class="proj__cat">영상촬영 및 편집자 · 2025 책읽는 대한민국</span></div></a>
+        <a class="proj" href="projects.html#kafa" data-cursor="View"><div class="proj__media"><img src="img/kafa-poster.jpg" alt="우리 무슨 사이야? 영화제 포스터 리디자인"></div><div class="proj__info"><span class="proj__no">04</span><h3>Design</h3><span class="proj__cat">시각 언어의 재구성 · 영화제 포스터 리디자인</span></div></a>
+      </div>
+      <div class="work__bar"><i id="workBar"></i></div>
+    </div>
+  </section>
+
+  <!-- (03) SIGNATURE PROJECTS -->
+  <section class="sec" id="signature">
+    <div class="sec-head mono"><span><b>(03)</b> Signature Projects</span><span>04 Cases</span></div>
+    <h2 class="spot__title big rv">Signature<br><em>Work</em></h2>
+
+    <article class="spot rv">
+      <a class="spot__media" href="projects.html#g18" data-cursor="View Case" aria-label="도시편집 케이스 보기">
+        <img src="img/g18-cover.jpg" alt="도시편집 표지를 손에 든 사진">
+        <div class="spot__overlay"><span class="mono">Nº01</span><h3 class="spot__name">도시<em>편집</em></h3><p class="spot__desc mono">Magazine · 『지울림』 제18호 · 편집장</p><span class="spot__cta mono">View Case →</span></div>
+      </a>
+      <div class="spot__meta">
+        <p>도시 속에 흩어진 공간과 문장들을 수집해 『지울림』이라는 하나의 지도로 ‘편집’한 호입니다. 편집장으로서 원고 수록부터 최종 교정교열, 표지 디자인까지 100% 맡았습니다.</p>
+        <a href="projects.html#g18" class="btn" data-cursor="View">View Case →</a>
+      </div>
+    </article>
+
+    <article class="spot spot--right rv">
+      <a class="spot__media" href="projects.html#g17" data-cursor="View Case" aria-label="출판주의자 케이스 보기">
+        <img src="img/g17-cover.jpg" alt="출판주의자 표지와 내지 목업">
+        <div class="spot__overlay"><span class="mono">Nº02</span><h3 class="spot__name">출판<em>주의자</em></h3><p class="spot__desc mono">Magazine · 『지울림』 제17호</p><span class="spot__cta mono">View Case →</span></div>
+      </a>
+      <div class="spot__meta">
+        <p>출판을 둘러싼 사람과 현장을 직접 담아낸 인터뷰, 행사 기록, 기획기사로 출판의 오늘을 입체적으로 구성했습니다. 원고 수록과 내지 편집, 인쇄·배포를 총괄했습니다.</p>
+        <a href="projects.html#g17" class="btn" data-cursor="View">View Case →</a>
+      </div>
+    </article>
+
+    <article class="spot rv">
+      <a class="spot__media" href="projects.html#press" data-cursor="View Case" aria-label="서일학보 케이스 보기">
+        <img src="img/news-b.jpg" alt="서일학보 지면 목업">
+        <div class="spot__overlay"><span class="mono">Nº03</span><h3 class="spot__name">서일<em>학보</em></h3><p class="spot__desc mono">Newspaper · 2026 서일학보사 편집장</p><span class="spot__cta mono">View Case →</span></div>
+      </a>
+      <div class="spot__meta">
+        <p>신속·정확·공정. 4개 부서를 총괄하며 월간 편집회의를 주관하고, 원고 교정·교열부터 조판본 검수, 최종 발행까지 학보의 한 달을 관리합니다.</p>
+        <a href="projects.html#press" class="btn" data-cursor="View">View Case →</a>
+      </div>
+    </article>
+
+    <article class="spot spot--right rv">
+      <a class="spot__media" href="projects.html#kafa" data-cursor="View Case" aria-label="영화제 포스터 리디자인 케이스 보기">
+        <img src="img/kafa-pair.jpg" alt="기존 포스터와 리디자인 포스터 비교 목업">
+        <div class="spot__overlay"><span class="mono">Nº04</span><h3 class="spot__name">우리 무슨 <em>사이야?</em></h3><p class="spot__desc mono">Design · 2026 KAFA Film Festival</p><span class="spot__cta mono">View Case →</span></div>
+      </a>
+      <div class="spot__meta">
+        <p>밝고 다채로운 기존 포스터와 달리, 검은 배경과 ‘눈’ 그래픽, 왜곡된 타이포그래피로 ‘우리 무슨 사이야?’라는 질문을 낯설고 긴장감 있게 재해석했습니다.</p>
+        <a href="projects.html#kafa" class="btn" data-cursor="View">View Case →</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- (04) HOW I WORK -->
+  <section class="sec" id="approach">
+    <div class="sec-head mono"><span><b>(04)</b> How I Work</span><span>Approach</span></div>
+    <p class="approach__intro rv">기획하고, 현장에 가고, 다듬고, <em>끝까지 책임지고 발행합니다.</em></p>
+    <div class="steps rv">
+      <div class="step"><span class="step__no">01</span><h3>Plan</h3><h4>기획</h4><p>편집회의를 주관하며 지면별 기사 기획과 구성을 논의하고, 한 호를 관통하는 주제를 정합니다.</p></div>
+      <div class="step"><span class="step__no">02</span><h3>Report</h3><h4>취재</h4><p>책문화제, 독서 캠페인 선포식, 북토크 현장을 직접 찾아가 관찰하고 사진·영상·글로 기록합니다.</p></div>
+      <div class="step"><span class="step__no">03</span><h3>Edit</h3><h4>편집</h4><p>폰트와 자간, 행간, 이미지 간격을 조정해 가독성을 높이고, 일관된 기준으로 지면의 통일감을 만듭니다.</p></div>
+      <div class="step"><span class="step__no">04</span><h3>Publish</h3><h4>교정 · 발행</h4><p>교정·교열과 조판본 검수를 반복하고, 피드백을 반영해 최종 인쇄와 발행까지 일정을 관리합니다.</p></div>
+    </div>
+  </section>
+
+  <!-- (05) WHAT I DO -->
+  <section class="sec" id="services">
+    <div class="sec-head mono"><span><b>(05)</b> What I Do — Photoshop · InDesign · Illustrator · Premiere Pro</span><span>Expertise</span></div>
+    <div class="svc">
+      <div class="svc__row rv"><span class="svc__no">01</span><h3>Magazine<small>‘지울림’ 편집장</small></h3><div class="svc__body"><p>대학생의 시선에서 시작되는 콘텐츠를 기획하고, 원고 수록부터 내지 편집, 표지 디자인, 인쇄·배포까지 잡지 제작의 전 과정을 경험했습니다.</p><div class="tags"><span>Editing</span><span>Layout</span><span>Cover</span><span>Print</span></div></div></div>
+      <div class="svc__row rv"><span class="svc__no">02</span><h3>Newspaper<small>2026 서일학보사 편집장</small></h3><div class="svc__body"><p>수습기자에서 정기자, 편집장까지. 기사 기획과 칼럼 집필, 교정·교열, 조판 관리로 매달 학보를 발행합니다.</p><div class="tags"><span>Reporting</span><span>Column</span><span>Proofreading</span></div></div></div>
+      <div class="svc__row rv"><span class="svc__no">03</span><h3>Video<small>영상 촬영 및 편집자</small></h3><div class="svc__body"><p>행사 현장을 촬영하고 인터뷰의 핵심을 골라 재구성해, 1~2분 분량의 전시용 영상으로 만듭니다.</p><div class="tags"><span>Shooting</span><span>Interview</span><span>Premiere Pro</span></div></div></div>
+      <div class="svc__row rv"><span class="svc__no">04</span><h3>Design<small>시각 언어의 재구성</small></h3><div class="svc__body"><p>주제를 다시 읽고 타이포그래피와 그래픽으로 재해석합니다. 하나의 질문이 담을 수 있는 다른 감정을 시각화합니다.</p><div class="tags"><span>Poster</span><span>Typography</span><span>Graphic</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="numbers rv">
+      <div class="num"><b>02</b><span>‘지울림’ 제작 참여 호<br>(제17호 · 제18호)</span></div>
+      <div class="num"><b>100%</b><span>제18호 ‘도시편집’<br>편집장 기여도</span></div>
+      <div class="num"><b>04</b><span>서일학보사<br>총괄 부서</span></div>
+      <div class="num"><b>08</b><span>서일학보<br>연간 발행 횟수</span></div>
+    </div>
+  </section>
+
+  <div class="marquee marquee--alt" aria-hidden="true">
+    <div class="marquee__track" data-speed="60"><span>Turn around and look again</span><span class="star">✳</span><span>새로운 관점과 가능성을 찾아갑니다</span><span class="star">✳</span><span>Open to opportunities</span><span class="star">✳</span></div>
+  </div>
+
+  <!-- (06) PHILOSOPHY -->
+  <section class="sec">
+    <div class="sec-head mono"><span><b>(06)</b> Philosophy</span><span>Belief</span></div>
+    <p class="philo__text rv">당연하게 여겼던 것에도 질문을 던지고,<br><em>발견한 의미를 나만의 방식으로</em> 표현합니다.</p>
+    <div class="philo rv">
+      <div class="philo__item"><span class="mono">01</span><div><h3>시선을 돌린다</h3><p>익숙한 방향에서 벗어나면 미처 발견하지 못했던 가능성이 드러납니다.</p></div></div>
+      <div class="philo__item"><span class="mono">02</span><div><h3>질문을 던진다</h3><p>당연하게 여겼던 것에도 ‘왜’라고 묻는 데서 기획이 시작됩니다.</p></div></div>
+      <div class="philo__item"><span class="mono">03</span><div><h3>다르게 이해한다</h3><p>다른 관점에서 대상을 바라보고, 현장의 목소리로 이해를 넓힙니다.</p></div></div>
+      <div class="philo__item"><span class="mono">04</span><div><h3>나만의 방식으로</h3><p>그 안에서 발견한 의미를 글과 지면, 영상과 그래픽으로 표현합니다.</p></div></div>
+    </div>
+  </section>
+
+  <!-- (07) PROFILE -->
+  <section class="sec profile" id="profile">
+    <div class="sec-head mono"><span><b>(07)</b> Profile · Career</span><span>About me</span></div>
+    <div class="profile__grid">
+      <div class="rv">
+        <div class="profile__photo"><img src="web/profile.jpg" alt="신은선 프로필 사진" loading="lazy"></div>
+        <p class="profile__name">신은선<small>SHIN EUNSEON · 2005.02.22</small></p>
+        <p class="profile__bio">서일대학교 미디어출판학과. 잡지 ‘지울림’과 서일학보사의 편집장으로 활동하고 있습니다.</p>
+      </div>
+      <div class="rv">
+        <h3 class="sub">Career</h3>
+        <ul class="rows">
+          <li><span class="mono">2026.03 — 2026.12</span><strong>서일학보사 편집장<em>NOW</em></strong></li>
+          <li><span class="mono">2026.03 — 2026.12</span><strong>지울림 편집장<em>NOW</em></strong></li>
+          <li><span class="mono">2025.09</span><strong>책읽는대한민국 영상 프로젝트 촬영/편집</strong></li>
+          <li><span class="mono">2025.07 — 2025.12</span><strong>서일학보사 정기자</strong></li>
+          <li><span class="mono">2025.03 — 2025.06</span><strong>서일학보사 수습기자</strong></li>
+          <li><span class="mono">2024.03 — 2025.12</span><strong>지울림 부원</strong></li>
+        </ul>
+        <h3 class="sub">Education</h3>
+        <ul class="rows">
+          <li><span class="mono">2027.02</span><strong>서일대학교 미디어출판학과 졸업</strong></li>
+          <li><span class="mono">2024.02</span><strong>청주중앙여자고등학교 졸업</strong></li>
+        </ul>
+        <h3 class="sub">Tools</h3>
+        <ul class="skills">
+          <li><b>Ps</b><div class="meter"><i style="--v:75%"></i></div><span>사진보정, 포스터 제작 가능</span></li>
+          <li><b>Id</b><div class="meter"><i style="--v:75%"></i></div><span>편집디자인 가능</span></li>
+          <li><b>Ai</b><div class="meter"><i style="--v:50%"></i></div><span>기본툴 인지, 기본적인 작업 가능</span></li>
+          <li><b>Pr</b><div class="meter"><i style="--v:50%"></i></div><span>기본적인 편집 작업 가능</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- (08) CONTACT -->
+  <footer class="contact" id="contact">
+    <div class="sec-head mono"><span><b>(08)</b> Let's work together</span><span>Thank you</span></div>
+    <h2 class="contact__big big rv">Thank<br><em>You</em></h2>
+    <a class="contact__mail" href="mailto:goldsun052@gmail.com" data-cursor="Mail">goldsun052@gmail.com <span aria-hidden="true">→</span></a>
+    <div class="contact__cols">
+      <div><span class="mono">Mobile</span><p>010-3090-3825</p></div>
+      <div><span class="mono">Instagram</span><p><a href="https://www.instagram.com/e2xn.n/" target="_blank" rel="noopener">@e2xn.n</a></p></div>
+      <div><span class="mono">Portfolio</span><p><a href="portfolio.pdf" target="_blank" rel="noopener">PDF 다운로드 ↓</a></p></div>
+    </div>
+    <div class="foot mono"><span>© 2026 신은선 (Shin Eunseon)</span><span>Seoil University · Media Publishing</span></div>
+  </footer>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
