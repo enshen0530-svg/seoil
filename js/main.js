@@ -146,4 +146,76 @@
     });
   }
   addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---------- keep #hash landings on target while images above it load ----------
+     Images load after the browser has already jumped to the anchor, pushing the
+     target down so the visitor lands on the previous project. Re-align until the
+     visitor scrolls on their own or the page settles. */
+  // Keeps the page at getY() while late images change the layout, until the visitor scrolls.
+  const keepAt = getY => {
+    let userMoved = false;
+    const stop = () => { userMoved = true; };
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(ev => addEventListener(ev, stop, { once: true, passive: true }));
+    const align = () => {
+      if (userMoved) return;
+      const y = Math.min(getY(), document.documentElement.scrollHeight - innerHeight);
+      if (Math.abs(scrollY - y) > 2) scrollTo({ top: y, behavior: 'instant' });
+    };
+    align();
+    $$('img').forEach(im => { if (!im.complete) im.addEventListener('load', align, { once: true }); });
+    addEventListener('load', align);
+    [300, 800, 1600, 3000].forEach(t => setTimeout(align, t));
+  };
+  const pinHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id && document.getElementById(id);
+    if (target) keepAt(() => target.getBoundingClientRect().top + scrollY);
+  };
+
+  /* ---------- remember where the visitor was (for the Back button) ----------
+     The browser's own restore runs before lazy images have height, so it lands near
+     the top. Save the position per history entry and restore it ourselves. */
+  // The position lives in the history entry itself (history.state), so every Back/Forward
+  // step — to another page or to an earlier #section of this page — gets its own spot.
+  const readPos = st => (st && st.__pos) || null;
+  const nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  const saved = (nav.type === 'back_forward' || nav.type === 'reload') ? readPos(history.state) : null;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  /* ---------- full-text pages: text / page-image switch ----------
+     Phones open on the text version, larger screens on the printed pages. */
+  const switcher = $('.view-switch');
+  let currentView = null;
+  if (switcher) {
+    const views = $$('[data-view]');
+    const show = name => {
+      currentView = name;
+      views.forEach(v => { v.hidden = v.dataset.view !== name; });
+      $$('button', switcher).forEach(b => b.setAttribute('aria-selected', String(b.dataset.show === name)));
+      onScroll();
+    };
+    $$('button', switcher).forEach(b => b.addEventListener('click', () => {
+      show(b.dataset.show);
+      const top = switcher.getBoundingClientRect().top + scrollY - 100;
+      if (scrollY > top) scrollTo({ top, behavior: 'instant' });
+    }));
+    document.documentElement.classList.add('views-ready');
+    show((saved && saved.view) || (matchMedia('(max-width:720px)').matches ? 'text' : 'pages'));
+  }
+
+  const savePos = () => {
+    try { history.replaceState(Object.assign({}, history.state, { __pos: { y: scrollY, view: currentView } }), ''); } catch (e) {}
+  };
+  addEventListener('pagehide', savePos);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') savePos(); });
+  // save right before any link click (other page or #section), before the new history entry is made
+  document.addEventListener('click', e => { if (e.target.closest('a[href]')) savePos(); }, true);
+  addEventListener('popstate', e => {
+    const p = readPos(e.state);
+    if (p && typeof p.y === 'number') keepAt(() => p.y);
+    else pinHash();
+  });
+
+  if (saved && typeof saved.y === 'number') keepAt(() => saved.y);
+  else pinHash(); // fresh visit with #hash; in-page links keep their smooth scroll
 })();

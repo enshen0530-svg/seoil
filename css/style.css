@@ -68,7 +68,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .menu__top{display:flex;justify-content:space-between;align-items:center}
 .menu__close{width:52px;height:52px;border:1px solid #000;border-radius:50%;font-size:24px;line-height:1}
 .menu ol{list-style:none;margin-top:auto}
-.menu li a{display:flex;align-items:baseline;gap:18px;font-family:var(--display);font-weight:800;font-size:clamp(34px,7.4vw,104px);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.18);transition:padding-left .35s var(--ease)}
+.menu li a{display:flex;align-items:baseline;gap:18px;font-family:var(--display);font-weight:800;font-size:clamp(28px,min(6.4vw,7svh),92px);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.18);transition:padding-left .35s var(--ease)}
 .menu li a:hover{padding-left:20px}
 .menu li small{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:0}
 .menu .mono{color:#000}
@@ -82,14 +82,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- HERO ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:96px var(--pad) 36px;position:relative}
 .hero__meta{width:100%;display:flex;justify-content:space-between;gap:12px}
-/* illustration is ~1.32:1 — size by whichever is tighter: width or the height left after the title */
-.hero__art{width:min(100%,1120px,max(300px,calc((81svh - 255px) * 1.32)));margin:clamp(4px,1vw,12px) auto 0}
+/* illustration is ~1.54:1 — size by whichever is tighter: width or the height left after the title */
+.hero__art{width:min(100%,1120px,max(300px,calc((81svh - 320px) * 1.54)));margin:clamp(4px,1vw,12px) auto 0}
 .hero__art img{width:100%;height:auto;margin:0 auto;mix-blend-mode:lighten;animation:bob 6s ease-in-out infinite alternate}
 @keyframes bob{to{transform:translateY(-10px) rotate(-1.2deg)}}
 .hero__title{font-size:clamp(34px,min(8.2vw,10svh),148px);margin-top:clamp(12px,2vw,28px)}
 .hero__title .line{display:block;overflow:hidden;padding-bottom:.04em}
-.hero__title .line span{display:block;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
-.hero__title .line:nth-child(2) span{animation-delay:.12s}
+.hero__title .line > span{display:block;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+.hero__title .line:nth-child(2) > span{animation-delay:.12s}
 .hero__title .y{color:var(--yellow)}
 @keyframes rise{to{transform:none}}
 .hero .lead{margin:clamp(20px,2.6vw,32px) auto 0;text-align:center;max-width:32em}
@@ -215,6 +215,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .skills{list-style:none;display:grid;gap:18px}
 .skills li{display:grid;grid-template-columns:64px minmax(0,1fr) 240px;align-items:center;gap:18px}
 .skills b{font-family:var(--display);font-weight:800;font-size:24px;white-space:nowrap;letter-spacing:-.02em}
+.skills b{display:flex;align-items:center;height:40px}
+.skills b img{height:30px;width:auto;max-width:none}
 .meter{height:6px;background:rgba(22,19,15,.12);position:relative;overflow:hidden}
 .meter i{position:absolute;inset:0 auto 0 0;background:var(--brown);width:0;transition:width 1.4s var(--ease)}
 .skills.in .meter i{width:var(--v)}
@@ -268,6 +270,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .g{grid-column:span 12}
 .g--6{grid-column:span 6}.g--5{grid-column:span 5}.g--7{grid-column:span 7}.g--4{grid-column:span 4}.g--8{grid-column:span 8}.g--3{grid-column:span 3}
 .g--drop{margin-top:clamp(40px,8vw,120px)}
+.g--center{grid-column:4 / span 6}
+.g--stack{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(12px,1.6vw,24px)}
+@media (max-width:720px){.g--center{grid-column:1 / -1}}
 .g figure{overflow:hidden;background:var(--bg-2);cursor:zoom-in}
 .g img{width:100%;height:auto;transition:transform .8s var(--ease)}
 .g figure:hover img{transform:scale(1.025)}
@@ -306,6 +311,48 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .kit dd{font-size:16px}
 .case__foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:clamp(48px,6vw,80px)}
+
+/* =========================================================
+   FULL-TEXT (원고 전문) PAGES — articles/*.html
+   ========================================================= */
+.reader{padding:clamp(130px,16vw,200px) var(--pad) clamp(64px,8vw,120px)}
+.reader__tag{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--yellow);color:#000;padding:4px 10px;margin-bottom:22px}
+.reader__title{font-size:clamp(32px,5.2vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1.15;max-width:18em}
+.reader__sub{margin-top:18px;font-size:clamp(17px,1.7vw,22px);color:var(--body);max-width:36em}
+.reader__meta{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reader__meta dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.reader__meta dd{font-size:16px}
+.reader__hint{margin:28px 0 clamp(28px,4vw,48px)}
+.pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,56px) 0;max-width:1440px;margin:0 auto}
+.pages figure{position:relative;cursor:zoom-in;background:#fff}
+.pages figure img{width:100%;height:auto}
+.pages figure:nth-child(odd)::after{content:"";position:absolute;inset:0 0 0 auto;width:6%;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.14));pointer-events:none}
+.pages figure:nth-child(even)::after{content:"";position:absolute;inset:0 auto 0 0;width:4%;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,0));pointer-events:none}
+.pages figcaption{position:absolute;left:0;right:0;bottom:-26px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mute);text-align:center}
+.pages--single{grid-template-columns:1fr;max-width:860px}
+.pages--single figure::after{display:none}
+.pages--single figcaption{position:static;padding-top:10px;text-align:left}
+.reader__more{max-width:860px;margin:clamp(40px,5vw,64px) auto 0;display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start;padding-top:24px;border-top:1px solid var(--line)}
+.reader__more figure{cursor:zoom-in;background:#fff}
+.reader__more img{width:100%;height:auto}
+.reader__nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1440px;margin:clamp(64px,8vw,104px) auto 0;padding-top:28px;border-top:1px solid var(--line)}
+.fulltext-link{margin-top:24px}
+/* text / pages switch */
+.view-switch{display:inline-flex;gap:4px;padding:4px;margin:28px 0 clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:999px;position:sticky;top:88px;z-index:5;background:rgba(3,3,2,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.view-switch button{height:40px;padding:0 18px;border-radius:999px;font-size:15px;font-weight:600;color:var(--mute);transition:background .2s,color .2s}
+.view-switch button[aria-selected="true"]{background:var(--yellow);color:#000}
+.views-ready [data-view][hidden]{display:none}
+.fulltext{max-width:40em}
+.fulltext__note{margin-bottom:28px}
+.fulltext__body h2{font-size:clamp(21px,2vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.4;margin:48px 0 16px;padding-top:22px;border-top:1px solid var(--line)}
+.fulltext__body h2:first-child{margin-top:0}
+.fulltext__body p{font-size:clamp(17px,1.3vw,18.5px);line-height:1.9;color:var(--body);margin-bottom:1.15em}
+@media (max-width:720px){
+  .reader__meta{grid-template-columns:1fr 1fr}
+  .pages{grid-template-columns:1fr;gap:44px}
+  .pages figure::after{display:none}
+  .reader__more{grid-template-columns:120px 1fr}
+}
 
 /* ---------- lightbox ---------- */
 .lb{position:fixed;inset:0;z-index:99;background:rgba(3,3,2,.96);display:none;align-items:center;justify-content:center;padding:72px var(--pad)}
@@ -372,7 +419,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;transition:none}
-  .hero__title .line span{transform:none;animation:none}
+  .hero__title .line > span{transform:none;animation:none}
   .hero__art img{animation:none}
   .spot__media img{transform:none!important;height:100%}
 }
